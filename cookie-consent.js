@@ -1512,7 +1512,7 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     };
     
     // Generate language selector dropdown if enabled
-     const languageSelector = `
+    const languageSelector = `
     <div class="language-selector">
         <select id="cookieLanguageSelect">
             ${Object.entries(translations).map(([code, translation]) => `
@@ -1714,7 +1714,7 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     z-index: 1; /* Ensure it stays above other elements */
 }
 
-   .language-selector select {
+    .language-selector select {
         padding: 6px 10px;
         border-radius: 6px;
         border: 1px solid #e0e0e0;
