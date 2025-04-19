@@ -1714,22 +1714,22 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     z-index: 1; /* Ensure it appears above other elements */
 }
 
-   .language-selector select {
-    padding: 6px 10px;
-    border-radius: 6px;
-    border: 1px solid #e0e0e0;
-    background-color: #f8f9fa;
-    font-size: 13px;
-    color: #333;
+.language-selector select {
+    padding: 8px 32px 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #d1d5db;
+    background-color: white;
+    font-size: 14px;
+    color: #111827;
     cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
     transition: all 0.2s ease;
-    appearance: none; /* Remove default styling */
-    -webkit-appearance: none; /* For Safari */
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
-    background-position: right 8px center;
-    background-size: 14px;
-    padding-right: 30px;
+    background-position: right 10px center;
+    background-size: 16px;
 }
 
 
