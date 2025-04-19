@@ -12,7 +12,7 @@
 // ============== CONFIGURATION SECTION ============== //
 const config = {
     // Domain restriction - only show on these domains (empty array = all domains)
-    allowedDomains: ['example.com', 'yourdomain.com'],
+    allowedDomains: ['dev-rpractice.pantheonsite.io', 'yourdomain.com'],
     
     // Language configuration
     languageConfig: {
