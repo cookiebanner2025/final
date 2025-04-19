@@ -1708,11 +1708,10 @@ function injectConsentHTML(detectedCookies, language = 'en') {
 
     /* Language Selector Styles */
   .language-selector {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    z-index: 1; /* Ensure it stays above other elements */
-}
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
 
     .language-selector select {
         padding: 6px 10px;
@@ -1726,13 +1725,13 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     }
 
     .language-selector select:hover {
-        border-color: ${currentTheme.secondary};
+        border-color: #3498db;
         background-color: #fff;
     }
 
     .language-selector select:focus {
         outline: none;
-        border-color: ${currentTheme.secondary};
+        border-color: #3498db;
         box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
     }
 
