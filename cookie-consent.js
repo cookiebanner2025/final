@@ -12,7 +12,7 @@
 // ============== CONFIGURATION SECTION ============== //
 const config = {
     // Domain restriction - only show on these domains (empty array = all domains)
-    allowedDomains: ['dev-rpractice.pantheonsite.io', 'yourdomain.com'],
+    allowedDomains: ['example.com', 'yourdomain.com'],
     
     // Language configuration
     languageConfig: {
@@ -62,7 +62,8 @@ const config = {
         acceptOnContinue: true, // Implicit consent when continuing to browse
         floatingButtonPosition: 'left' // 'left' or 'right'
     },
-    
+
+
     // UI Theme (can be 'default' or 'classic')
     uiTheme: 'default'
 };
@@ -206,7 +207,7 @@ const translations = {
         passwordIncorrect: "Mot de passe incorrect",
         dashboardTitle: "Tableau de bord des analyses de consentement"
     },
-    de: {
+      de: {
         title: "Wir schätzen Ihre Privatsphäre",
         description: "Wir verwenden Cookies, um Ihr Surferlebnis zu verbessern, personalisierte Anzeigen oder Inhalte bereitzustellen und unseren Datenverkehr zu analysieren. Wenn Sie auf \"Alle akzeptieren\" klicken, erklären Sie sich mit der Verwendung von Cookies einverstanden.",
         privacy: "Datenschutzrichtlinie",
@@ -1511,16 +1512,14 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     };
     
     // Generate language selector dropdown if enabled
-  const languageSelector = config.languageConfig.showLanguageSelector ? `
-<div class="language-selector-bottom">
-    <div class="language-scroller">
-        ${availableLanguages.map(code => `
-            <span class="language-option ${code === language ? 'selected' : ''}" data-lang="${code}">
-                ${translations[code].language}
-            </span>
-        `).join('')}
-    </div>
-</div>` : '';
+    const languageSelector = config.languageConfig.showLanguageSelector ? `
+    <div class="language-selector">
+        <select id="cookieLanguageSelect">
+            ${availableLanguages.map(code => `
+                <option value="${code}" ${code === language ? 'selected' : ''}>${translations[code].language}</option>
+            `).join('')}
+        </select>
+    </div>` : '';
     
     // Generate admin dashboard button if analytics enabled
     const adminButton = config.analytics.enabled && config.analytics.showDashboard ? `
@@ -1687,39 +1686,6 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         color: ${currentTheme.danger};
         border: 1px solid ${currentTheme.danger};
     }
-    /* Horizontal scrollable language pills */
-.language-selector-bottom {
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid #e0e0e0;
-}
-
-.language-scroller {
-    display: flex;
-    overflow-x: auto;
-    gap: 8px;
-    padding-bottom: 5px;
-    scrollbar-width: thin;
-}
-
-.language-option {
-    padding: 5px 12px;
-    background: #f0f0f0;
-    border-radius: 15px;
-    white-space: nowrap;
-    cursor: pointer;
-    font-size: 13px;
-    transition: all 0.2s;
-}
-
-.language-option:hover {
-    background: #e0e0e0;
-}
-
-.language-option.selected {
-    background: #2ecc71; /* Your primary color */
-    color: white;
-}
 
     .reject-btn:hover {
         background-color: #ffeeed;
@@ -1741,38 +1707,33 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     }
 
     /* Language Selector Styles */
-.language-selector {
-    position: static; /* Remove absolute positioning */
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid #e0e0e0;
-    width: 100%;
-}
+    .language-selector {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
 
-.language-selector select {
-    padding: 6px 10px;
-    border-radius: 6px;
-    border: 1px solid #e0e0e0;
-    background-color: #f8f9fa;
-    font-size: 13px;
-    color: #333;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    width: 100%;
-    max-height: 150px; /* Limit height and enable scrolling */
-    overflow-y: auto; /* Enable vertical scrolling */
-}
+    .language-selector select {
+        padding: 6px 10px;
+        border-radius: 6px;
+        border: 1px solid #e0e0e0;
+        background-color: #f8f9fa;
+        font-size: 13px;
+        color: #333;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
 
-.language-selector select:hover {
-    border-color: #3498db;
-    background-color: #fff;
-}
+    .language-selector select:hover {
+        border-color: ${currentTheme.secondary};
+        background-color: #fff;
+    }
 
-.language-selector select:focus {
-    outline: none;
-    border-color: #3498db;
-    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-}
+    .language-selector select:focus {
+        outline: none;
+        border-color: ${currentTheme.secondary};
+        box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    }
 
     /* Settings Modal - Updated to 845x470 dimensions */
     .cookie-settings-modal {
