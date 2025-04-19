@@ -1604,7 +1604,6 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         border-radius: 12px;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
         z-index: 9999;
-        
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         display: none;
         transform: translateY(20px);
@@ -1612,7 +1611,7 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         border: none;
         overflow: hidden;
-        padding: 24px 24px 60px; /* Increased bottom padding *
+        padding: 24px 24px 60px; 
     }
 
     .cookie-consent-banner.show {
