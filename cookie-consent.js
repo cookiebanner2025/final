@@ -1707,22 +1707,45 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     }
 
     /* Language Selector Styles */
-  .language-selector {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-    }
+ .language-selector {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1; /* Ensure it appears above other elements */
+}
 
+   .language-selector select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    background-color: #f8f9fa;
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    appearance: none; /* Remove default styling */
+    -webkit-appearance: none; /* For Safari */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 14px;
+    padding-right: 30px;
+}
+
+
+/* Dropdown options container - force downward opening */
+.language-selector select option {
+    direction: ltr; /* Ensure text direction is left-to-right */
+}
+
+/* For Firefox to show the dropdown properly */
+@-moz-document url-prefix() {
     .language-selector select {
-        padding: 6px 10px;
-        border-radius: 6px;
-        border: 1px solid #e0e0e0;
-        background-color: #f8f9fa;
-        font-size: 13px;
-        color: #333;
-        cursor: pointer;
-        transition: all 0.2s ease;
+        text-indent: 0;
+        padding-right: 30px;
     }
+}
+
 
     .language-selector select:hover {
         border-color: #3498db;
