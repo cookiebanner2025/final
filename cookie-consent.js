@@ -794,7 +794,7 @@ const translations = {
         statsLast7Days: "Aħħar 7 Ġranet",
         statsLast30Days: "Aħħar 30 Ġranet"
     }
-};
+
     // ... (keep all other language translations the same)
 };
 
