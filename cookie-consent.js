@@ -1511,14 +1511,16 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     };
     
     // Generate language selector dropdown if enabled
-    const languageSelector = config.languageConfig.showLanguageSelector ? `
-    <div class="language-selector">
-        <select id="cookieLanguageSelect">
-            ${availableLanguages.map(code => `
-                <option value="${code}" ${code === language ? 'selected' : ''}>${translations[code].language}</option>
-            `).join('')}
-        </select>
-    </div>` : '';
+  const languageSelector = config.languageConfig.showLanguageSelector ? `
+<div class="language-selector-bottom">
+    <div class="language-scroller">
+        ${availableLanguages.map(code => `
+            <span class="language-option ${code === language ? 'selected' : ''}" data-lang="${code}">
+                ${translations[code].language}
+            </span>
+        `).join('')}
+    </div>
+</div>` : '';
     
     // Generate admin dashboard button if analytics enabled
     const adminButton = config.analytics.enabled && config.analytics.showDashboard ? `
@@ -1685,6 +1687,39 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         color: ${currentTheme.danger};
         border: 1px solid ${currentTheme.danger};
     }
+    /* Horizontal scrollable language pills */
+.language-selector-bottom {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.language-scroller {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    padding-bottom: 5px;
+    scrollbar-width: thin;
+}
+
+.language-option {
+    padding: 5px 12px;
+    background: #f0f0f0;
+    border-radius: 15px;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.language-option:hover {
+    background: #e0e0e0;
+}
+
+.language-option.selected {
+    background: #2ecc71; /* Your primary color */
+    color: white;
+}
 
     .reject-btn:hover {
         background-color: #ffeeed;
@@ -1707,11 +1742,11 @@ function injectConsentHTML(detectedCookies, language = 'en') {
 
     /* Language Selector Styles */
 .language-selector {
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    right: 15px;
-    z-index: 1;
+    position: static; /* Remove absolute positioning */
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+    width: 100%;
 }
 
 .language-selector select {
