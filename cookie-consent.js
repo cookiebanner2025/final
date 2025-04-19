@@ -1706,33 +1706,38 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     }
 
     /* Language Selector Styles */
-    .language-selector {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-    }
+.language-selector {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    z-index: 1;
+}
 
-    .language-selector select {
-        padding: 6px 10px;
-        border-radius: 6px;
-        border: 1px solid #e0e0e0;
-        background-color: #f8f9fa;
-        font-size: 13px;
-        color: #333;
-        cursor: pointer;
-        transition: all 0.2s ease;
-    }
+.language-selector select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    background-color: #f8f9fa;
+    font-size: 13px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    max-height: 150px; /* Limit height and enable scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
 
-    .language-selector select:hover {
-        border-color: ${currentTheme.secondary};
-        background-color: #fff;
-    }
+.language-selector select:hover {
+    border-color: #3498db;
+    background-color: #fff;
+}
 
-    .language-selector select:focus {
-        outline: none;
-        border-color: ${currentTheme.secondary};
-        box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-    }
+.language-selector select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
 
     /* Settings Modal - Updated to 845x470 dimensions */
     .cookie-settings-modal {
