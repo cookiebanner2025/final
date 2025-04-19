@@ -1512,14 +1512,14 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     };
     
     // Generate language selector dropdown if enabled
-    const languageSelector = config.languageConfig.showLanguageSelector ? `
+     const languageSelector = `
     <div class="language-selector">
         <select id="cookieLanguageSelect">
-            ${availableLanguages.map(code => `
-                <option value="${code}" ${code === language ? 'selected' : ''}>${translations[code].language}</option>
+            ${Object.entries(translations).map(([code, translation]) => `
+                <option value="${code}" ${code === language ? 'selected' : ''}>${translation.language}</option>
             `).join('')}
         </select>
-    </div>` : '';
+    </div>`;
     
     // Generate admin dashboard button if analytics enabled
     const adminButton = config.analytics.enabled && config.analytics.showDashboard ? `
@@ -1604,6 +1604,7 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         border-radius: 12px;
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
         z-index: 9999;
+        padding: 24px;
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         display: none;
         transform: translateY(20px);
@@ -1611,7 +1612,6 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         border: none;
         overflow: hidden;
-        padding: 24px 24px 60px; 
     }
 
     .cookie-consent-banner.show {
@@ -1709,12 +1709,12 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     /* Language Selector Styles */
   .language-selector {
     position: absolute;
-    bottom: 15px;
+    top: 15px;
     right: 15px;
-    margin-top: 10px;
+    z-index: 1; /* Ensure it stays above other elements */
 }
 
-    .language-selector select {
+   .language-selector select {
         padding: 6px 10px;
         border-radius: 6px;
         border: 1px solid #e0e0e0;
@@ -2959,3 +2959,4 @@ function getCookie(name) {
     }
     return null;
 }
+
