@@ -1513,13 +1513,27 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     
     // Generate language selector dropdown if enabled
     const languageSelector = config.languageConfig.showLanguageSelector ? `
-    <div class="language-selector">
-        <select id="cookieLanguageSelect">
-            ${availableLanguages.map(code => `
-                <option value="${code}" ${code === language ? 'selected' : ''}>${translations[code].language}</option>
-            `).join('')}
-        </select>
-    </div>` : '';
+  <div class="language-selector">
+    <div class="custom-dropdown">
+        <button class="dropdown-toggle">
+            <span id="currentLanguage">English</span>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L6 6L11 1" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <div class="dropdown-menu">
+            <div class="dropdown-item" data-lang="en">English</div>
+            <div class="dropdown-item" data-lang="fr">Français</div>
+            <div class="dropdown-item" data-lang="de">Deutsch</div>
+            <div class="dropdown-item" data-lang="es">Español</div>
+            <div class="dropdown-item" data-lang="it">Italiano</div>
+            <div class="dropdown-item" data-lang="pt">Português</div>
+            <div class="dropdown-item" data-lang="ru">Русский</div>
+            <div class="dropdown-item" data-lang="ja">日本語</div>
+            <div class="dropdown-item" data-lang="zh">中文</div>
+        </div>
+    </div>
+</div>
     
     // Generate admin dashboard button if analytics enabled
     const adminButton = config.analytics.enabled && config.analytics.showDashboard ? `
@@ -1708,23 +1722,21 @@ function injectConsentHTML(detectedCookies, language = 'en') {
 
     /* Language Selector Styles */
     .language-selector {
-    position: relative; /* Makes it a positioning context for the dropdown */
-}
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
 
-.language-selector select {
-    appearance: none; /* Removes default styling */
-    -webkit-appearance: none; /* For Safari */
-    padding: 6px 30px 6px 10px; /* Add space for dropdown arrow */
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 8px center;
-    background-size: 14px;
-}
-
-/* For modern browsers */
-.language-selector select:focus {
-    outline: none;
-}
+    .language-selector select {
+        padding: 6px 10px;
+        border-radius: 6px;
+        border: 1px solid #e0e0e0;
+        background-color: #f8f9fa;
+        font-size: 13px;
+        color: #333;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
 
     .language-selector select:hover {
         border-color: ${currentTheme.secondary};
