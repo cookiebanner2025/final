@@ -793,38 +793,7 @@ const translations = {
         statsTotal: "Total",
         statsPercentage: "Perċentwal",
         statsLast7Days: "Aħħar 7 Ġranet",
-        statsLast30Days: "Aħħar 30 Ġranet"
-
-
-
-
-
-        document.addEventListener('DOMContentLoaded', function() {
-    const langSelect = document.getElementById('cookieLanguageSelect');
-    if (langSelect) {
-        // Force dropdown to open downward
-        langSelect.addEventListener('click', function() {
-            // Reset any previous adjustments
-            this.style.marginTop = '0';
-            
-            // Check if dropdown is opening upward (negative top value)
-            setTimeout(() => {
-                const options = this.parentElement.querySelectorAll('option');
-                if (options.length > 0) {
-                    const firstOption = options[0].getBoundingClientRect();
-                    if (firstOption.top < this.getBoundingClientRect().top) {
-                        // If opening upward, force it downward
-                        this.style.marginTop = '200px';
-                        this.blur();
-                        setTimeout(() => this.focus(), 10);
-                    }
-                }
-            }, 10);
-        });
-    }
-});
-
-        
+        statsLast30Days: "Aħħar 30 Ġranet"   
     },
 
 
@@ -1748,16 +1717,13 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         right: 15px;
     }
 
-    .language-selector select {
-        padding: 6px 10px;
-        border-radius: 6px;
-        border: 1px solid #e0e0e0;
-        background-color: #f8f9fa;
-        font-size: 13px;
-        color: #333;
-        cursor: pointer;
-        transition: all 0.2s ease;
-    }
+ .language-selector select {
+    position: relative;
+    top: auto !important;
+    bottom: auto !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
 
     .language-selector select:hover {
         border-color: ${currentTheme.secondary};
