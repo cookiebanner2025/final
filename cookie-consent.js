@@ -1513,27 +1513,13 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     
     // Generate language selector dropdown if enabled
     const languageSelector = config.languageConfig.showLanguageSelector ? `
-  <div class="language-selector">
-    <div class="custom-dropdown">
-        <button class="dropdown-toggle">
-            <span id="currentLanguage">English</span>
-            <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L6 6L11 1" stroke="#333" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-        </button>
-        <div class="dropdown-menu">
-            <div class="dropdown-item" data-lang="en">English</div>
-            <div class="dropdown-item" data-lang="fr">Français</div>
-            <div class="dropdown-item" data-lang="de">Deutsch</div>
-            <div class="dropdown-item" data-lang="es">Español</div>
-            <div class="dropdown-item" data-lang="it">Italiano</div>
-            <div class="dropdown-item" data-lang="pt">Português</div>
-            <div class="dropdown-item" data-lang="ru">Русский</div>
-            <div class="dropdown-item" data-lang="ja">日本語</div>
-            <div class="dropdown-item" data-lang="zh">中文</div>
-        </div>
-    </div>
-</div>
+    <div class="language-selector">
+        <select id="cookieLanguageSelect">
+            ${availableLanguages.map(code => `
+                <option value="${code}" ${code === language ? 'selected' : ''}>${translations[code].language}</option>
+            `).join('')}
+        </select>
+    </div>` : '';
     
     // Generate admin dashboard button if analytics enabled
     const adminButton = config.analytics.enabled && config.analytics.showDashboard ? `
