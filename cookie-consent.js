@@ -49,7 +49,7 @@ const config = {
         storageDays: 30, // How long to keep analytics data
         showDashboard: true, // Show analytics dashboard button
         passwordProtect: true, // Enable password protection
-        dashboardPassword: 'admin123', // Default password (should be changed per site)
+        dashboardPassword: 'admin1234', // Default password (should be changed per site)
         passwordCookieDuration: 365 // Days to remember password
     },
     
@@ -65,7 +65,7 @@ const config = {
 
 
     // UI Theme (can be 'default' or 'classic')
-    uiTheme: 'classic'
+    uiTheme: 'default'
 };
 
 // ============== MAIN IMPLEMENTATION ============== //
