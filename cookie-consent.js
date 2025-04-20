@@ -1707,22 +1707,23 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     }
 
     /* Language Selector Styles */
-.language-selector {
-.language-selector {
-    position: relative;
-    display: inline-block;
+    .language-selector {
+    position: relative; /* Makes it a positioning context for the dropdown */
 }
 
 .language-selector select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    padding-right: 25px; /* Space for arrow */
+    appearance: none; /* Removes default styling */
+    -webkit-appearance: none; /* For Safari */
+    padding: 6px 30px 6px 10px; /* Add space for dropdown arrow */
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right 8px center;
     background-size: 14px;
-    cursor: pointer;
+}
+
+/* For modern browsers */
+.language-selector select:focus {
+    outline: none;
 }
 
     .language-selector select:hover {
