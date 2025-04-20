@@ -794,11 +794,12 @@ const translations = {
         statsPercentage: "Perċentwal",
         statsLast7Days: "Aħħar 7 Ġranet",
         statsLast30Days: "Aħħar 30 Ġranet"
-    },
 
 
- // ============== LANGUAGE DROPDOWN FIX ============== //
-document.addEventListener('DOMContentLoaded', function() {
+
+
+
+        document.addEventListener('DOMContentLoaded', function() {
     const langSelect = document.getElementById('cookieLanguageSelect');
     if (langSelect) {
         // Force dropdown to open downward
@@ -822,6 +823,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+        
+    },
+
+
+ // ============== LANGUAGE DROPDOWN FIX ============== //
+
 
     // ... (keep all other language translations the same)
 };
