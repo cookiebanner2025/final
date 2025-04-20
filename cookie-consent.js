@@ -18,7 +18,7 @@ const config = {
     languageConfig: {
         defaultLanguage: 'en', // Default language if auto-detection fails
         availableLanguages: [], // Empty array = all languages available
-        showLanguageSelector: false, // Show/hide language dropdown
+        showLanguageSelector: true, // Show/hide language dropdown
         autoDetectLanguage: true // Auto-detect language based on country/browser
     },
     
@@ -65,7 +65,7 @@ const config = {
 
 
     // UI Theme (can be 'default' or 'classic')
-    uiTheme: 'default'
+    uiTheme: 'classic'
 };
 
 // ============== MAIN IMPLEMENTATION ============== //
