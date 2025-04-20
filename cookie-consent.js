@@ -17,8 +17,8 @@ const config = {
     // Language configuration
     languageConfig: {
         defaultLanguage: 'en', // Default language if auto-detection fails
-        availableLanguages: ['en', 'es', 'de'], // Empty array = all languages available
-        showLanguageSelector: true, // Show/hide language dropdown
+        availableLanguages: [], // Empty array = all languages available
+        showLanguageSelector: false, // Show/hide language dropdown
         autoDetectLanguage: true // Auto-detect language based on country/browser
     },
     
