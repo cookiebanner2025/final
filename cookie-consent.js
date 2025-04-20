@@ -12,7 +12,7 @@
 // ============== CONFIGURATION SECTION ============== //
 const config = {
     // Domain restriction - only show on these domains (empty array = all domains)
-    allowedDomains: ['dev-rpractice.pantheonsite.io', 'practicebdhere.myshopify.com', 'mouribd.com'],
+    allowedDomains: ['dev-rpractice.pantheonsite.io', 'practicebdhere.myshopify.com', 'yourdomain.com'],
     
     // Language configuration
     languageConfig: {
